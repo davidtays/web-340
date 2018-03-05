@@ -1,0 +1,8 @@
+{
+    "name": "views-ejs",
+    "author": "David Tays",
+    "private": true,
+    "dependencies": {
+        "ejs": "^2.5.7"
+    }
+}
