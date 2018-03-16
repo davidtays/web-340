@@ -22,7 +22,7 @@ app.set("views", path.resolve(__dirname, "views"));
 app.set("view engine", "ejs");
 
 app.use(logger("dev"));
-
+//query for employeeId and provide a callback that parses the integer
 app.get("/:employeeId", function(req, res){
     var employeeId = parseInt(req.params.employeeId, 10);
     res.render("index", {

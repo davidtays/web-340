@@ -8,7 +8,7 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceFolder}/week-2/ejs-views\\Tays-exercise-2.4.js"
+            "program": "${workspaceFolder}/week-4/crud\\Tays-exercise-4.4.js"
         }
     ]
 }
