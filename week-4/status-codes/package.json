@@ -1,0 +1,9 @@
+{
+    "name": "status-codes",
+    "author": "David Tays",
+    "private": true,
+    "dependencies": {
+        "express": "^4.16.3",
+        "morgan": "^1.9.0"
+    }
+}
