@@ -1,0 +1,11 @@
+{
+    "name": "ems",
+    "author": "David Tays",
+    "private": true,
+    "dependencies": {
+        "body-parser": "^1.18.2",
+        "ejs": "^2.5.7",
+        "express": "^4.16.3",
+        "morgan": "^1.9.0"
+    }
+}

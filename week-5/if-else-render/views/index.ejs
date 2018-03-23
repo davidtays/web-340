@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+<!-- /*
+============================================
+; Title:  Assignment 5-2
+; Author: David Tays
+; Date:   March 18 2018
+; Modified By: <David Tays>
+;
+;===========================================*/ -->    
+
+    <head>
+        <meta charset="UTF-8">
+        <title>If-Else-Render</title>
+
+        <!--Stylesheet - Bootstrap -->
+        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css' integrity='sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb' crossorigin='anonymous'>
+    </head>
+    <body>
+        <div role="main" class="container">
+            <br/><br/>
+            <h2>
+                Name List
+            </h2>
+            
+                <!--if-->
+                <% if(namesList.length > 0){%>
+                    <% for(var i = 0; i < namesList.length; i++){%>
+                        <div class="alert alert-success" role="alert"><strong><%= namesList[i] %></strong></div>
+                    <% } %>
+                <% } %>
+        </div>
+    </body>
+</html>
