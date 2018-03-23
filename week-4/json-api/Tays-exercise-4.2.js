@@ -4,7 +4,7 @@
 ; Author: David Tays
 ; Date:   March 13 2018
 ; Modified By: <David Tays>
-;
+; Description: JSON API Example- take a request, parse it, and respond with a JSON object and an HTTP status code (Hahn, 2016).
 ;===========================================*/
 var express = require("express");
 

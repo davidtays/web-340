@@ -4,7 +4,7 @@
 ; Author: David Tays
 ; Date:   March 13 2018
 ; Modified By: <David Tays>
-;
+;Description: use cURL to test week fours crud example
 ;===========================================*/
 var express = require("express");
 
