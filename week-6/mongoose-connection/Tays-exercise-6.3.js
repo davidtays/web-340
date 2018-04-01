@@ -4,7 +4,7 @@
 ; Author: David Tays
 ; Date:   March 18 2018
 ; Modified By: <David Tays>
-;
+;Description: Mongoose/mongo Connection
 ;===========================================*/
 
 var mongoose = require("mongoose");
