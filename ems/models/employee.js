@@ -1,3 +1,11 @@
+/*============================================
+; Title:  Assignment 7-4
+; Author: David Tays
+; Date:   March 18 2018
+; Modified By: <David Tays>
+; Description: EJS User Interface Development
+;===========================================*/
+
 //require
 var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
