@@ -13,6 +13,8 @@ var http = require("http");
 var path = require("path");
 var mongoose = require("mongoose");
 var logger = require("morgan");
+var helmet = require("helmet");
+
 var Employee = require("./models/employee");
 // mLab connection
 var mongoDB = "mongodb://ems_user:mypuddin22@ds117749.mlab.com:17749/ems";
@@ -29,9 +31,13 @@ db.once("open", function(){
 
 // application
 var app = express();
+
+app.use(logger("short"));
+app.use(helmet.xssFilter());
+
 app.set("views", path.resolve(__dirname, "views"));
 app.set("view engine", "ejs");
-app.use(logger("short"));
+
 //model
 var employee = new Employee({
     firstName: "Apple",
@@ -41,7 +47,8 @@ var employee = new Employee({
 // Render the landing page
 app.get("/", function(req,res){
     res.render("index", {
-        title: "David's Home"
+        title: "David's Home",
+        message: "XSS Prevention Example"
     });
 });
 app.use("/style",express.static(__dirname + "/style"));
