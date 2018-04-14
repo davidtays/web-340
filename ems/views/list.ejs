@@ -6,28 +6,31 @@
 ; Modified By: <David Tays>
 ; Description: EJS User Interface Development/Tabular view of employee records
 ;===========================================*/-->
+<% include header %>
+<% include navbar %>
+<% include scripts %>
+<div role="main" class="container">
+  <% if(employees.length){ %>
+    <h2>-- Employee Listing --</h2><br/>
+    <a href="/new">Add New</a>
+    <table class="table table-hover">
+      <thead class="thead-dark">
+        <tr>
+          <th>Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% employees.forEach(function(entry){ %>
+          <tr>
+            <td><%= entry.name %></td>
+          </tr>      
+      </tbody>
+      <% }) %>
+    </table>
+    <% }else{ %>
+      No entries! <a href="/new">Add one!</a>     
 
-<p>Click on the Category to View:</p>
-
-<div class="tab">
-  <button class="tablinks" onclick="openTab(event, 'TabName1')">New</button>
-  <button class="tablinks" onclick="openTab(event, 'TabName2')">TabName2</button>
-  <button class="tablinks" onclick="openTab(event, 'TabName3')">TabName3</button>
+    <% } %> 
+    <br/> 
 </div>
-
-<div id="TabName1" class="tabcontent">
-  <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
-  <% include new %>
-</div>
-
-<div id="TabName2" class="tabcontent">
-  <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
-  <h3>Empty Tab</h3>
-  <p>Need a form 2.</p> 
-</div>
-
-<div id="TabName3" class="tabcontent">
-  <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
-  <h3>Empty Tab</h3>
-  <p>Need a form 3.</p>
-</div>
+<% include footer %>

@@ -54,33 +54,72 @@ app.use(function(req, res, next){
 
 app.set("views", path.resolve(__dirname, "views"));
 app.set("view engine", "ejs");
-//app.set("port", process.env.PORT || 8080);
+app.set("port", process.env.PORT || 8080);
 
-//model
-var employee = new Employee({
-    firstName: "Apple",
-    lastName: "Dumpling"
-});
+
 
 // Render the landing page
 app.get("/", function(req,res){
     res.render("index", {
-        title: "David's Home",
-        message: "XSS Prevention Example"
+        title: "David's Home"
+        
     });
 });
 app.get("/new", function(req, res){
     res.render("new",{
-        title: "New Employee"
+        title: "New Employee",
+        message: "XSS Prevention Example"
     });
 });
 app.post("/process", function(req, res){
-    console.log(req.body.txtName);
-    res.redirect("/");
-    /*if(!req.body.txtName){
+    /*console.log(req.body.txtName);
+    res.redirect("/");*/
+    if(!req.body.txtName){
         res.status(400).send("Entries must have a name");
         return;
-    }*/
+    }
+    //get request's form data
+    var employeeName = req.body.txtName;
+    console.log(employeeName);
+    //model
+    var employee = new Employee({
+        firstName: "Apple",
+        lastName: "Dumpling"
+    });
+    
+    //save
+    employee.save(function(error){
+        if(error)throw error;
+        console.log(employeeName + " saved successfully!");
+    });
+    res.redirect("/");
+});
+app.get("/list", function(req, res){
+    //console.log(req.body.txtName);
+    Employee.find({}, function(error, employees){
+        if(error) throw error;
+
+        res.render("list", {
+            title: "Employee List",
+            employees: "employees"
+        });
+    });    
+});
+app.get("view/:queryName", function(req, res){
+    var queryName = request.params.queryName;
+
+    Employee.find({'name': queryName}, function(error, employees){
+        if(error) throw error;
+
+        console.log(employees);
+
+        if(employees.length > 0){
+            response.render("view", {
+                title: "Employee Record",
+                employee: employees
+            });
+        }
+    });
 });
 app.use("/style",express.static(__dirname + "/style"));
 
