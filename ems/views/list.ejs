@@ -10,15 +10,14 @@
 <p>Click on the Category to View:</p>
 
 <div class="tab">
-  <button class="tablinks" onclick="openTab(event, 'TabName1')">TabName1</button>
+  <button class="tablinks" onclick="openTab(event, 'TabName1')">New</button>
   <button class="tablinks" onclick="openTab(event, 'TabName2')">TabName2</button>
   <button class="tablinks" onclick="openTab(event, 'TabName3')">TabName3</button>
 </div>
 
 <div id="TabName1" class="tabcontent">
   <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
-  <h3>Empty Tab</h3>
-  <p>Need a form 1.</p>
+  <% include new %>
 </div>
 
 <div id="TabName2" class="tabcontent">
