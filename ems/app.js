@@ -54,15 +54,14 @@ app.use(function(req, res, next){
 
 app.set("views", path.resolve(__dirname, "views"));
 app.set("view engine", "ejs");
-app.set("port", process.env.PORT || 8080);
+//app.set("port", process.env.PORT || 8080);
 
 
 
 // Render the landing page
 app.get("/", function(req,res){
     res.render("index", {
-        title: "David's Home"
-        
+        title: "David's Home"        
     });
 });
 app.get("/new", function(req, res){
@@ -89,7 +88,7 @@ app.post("/process", function(req, res){
     
     //save
     employee.save(function(error){
-        if(error)throw error;
+        if(error) throw error;
         console.log(employeeName + " saved successfully!");
     });
     res.redirect("/");
@@ -105,7 +104,7 @@ app.get("/list", function(req, res){
         });
     });    
 });
-app.get("view/:queryName", function(req, res){
+/* app.get("view/:queryName", function(req, res){
     var queryName = request.params.queryName;
 
     Employee.find({'name': queryName}, function(error, employees){
@@ -120,7 +119,7 @@ app.get("view/:queryName", function(req, res){
             });
         }
     });
-});
+});*/
 app.use("/style",express.static(__dirname + "/style"));
 
 http.createServer(app).listen(8080, function(){
