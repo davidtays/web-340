@@ -73,23 +73,24 @@ app.get("/new", function(req, res){
 app.post("/process", function(req, res){
     /*console.log(req.body.txtName);
     res.redirect("/");*/
-    if(!req.body.txtName){
+    if((!req.body.txtFirstName) || (!req.body.txtLastName)){
         res.status(400).send("Entries must have a name");
         return;
     }
     //get request's form data
-    var employeeName = req.body.txtName;
-    console.log(employeeName);
+    var employeeFirstName = req.body.txtFirstName;
+    var employeeLastName = req.body.txtLastName;
+    console.log(employeeFirstName + " " + employeeLastName);
     //model
     var employee = new Employee({
-        firstName: "Apple",
-        lastName: "Dumpling"
+        firstName: employeeFirstName,
+        lastName: employeeLastName
     });
     
     //save
     employee.save(function(error){
         if(error) throw error;
-        console.log(employeeName + " saved successfully!");
+        console.log(employeeFirstName + " " + employeeLastName + " saved successfully!");
     });
     res.redirect("/");
 });
@@ -100,12 +101,12 @@ app.get("/list", function(req, res){
 
         res.render("list", {
             title: "Employee List",
-            employees: "employees"
+            employees: employees
         });
     });    
 });
-/* app.get("view/:queryName", function(req, res){
-    var queryName = request.params.queryName;
+app.get("view/:queryName", function(req, res){
+    var queryName = req.params.queryName;
 
     Employee.find({'name': queryName}, function(error, employees){
         if(error) throw error;
@@ -113,13 +114,16 @@ app.get("/list", function(req, res){
         console.log(employees);
 
         if(employees.length > 0){
-            response.render("view", {
+            res.render("view", {
                 title: "Employee Record",
                 employee: employees
             });
         }
+        else {
+            res.redirect("/list");
+        }
     });
-});*/
+});
 app.use("/style",express.static(__dirname + "/style"));
 
 http.createServer(app).listen(8080, function(){
