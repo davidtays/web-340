@@ -54,7 +54,7 @@ app.use(function(req, res, next){
 
 app.set("views", path.resolve(__dirname, "views"));
 app.set("view engine", "ejs");
-//app.set("port", process.env.PORT || 8080);
+app.set("port", process.env.PORT || 8080);
 
 
 
@@ -130,6 +130,6 @@ app.get("/view/:queryName", function(req, res){
 });
 app.use("/style",express.static(__dirname + "/style"));
 
-http.createServer(app).listen(8080, function(){
-    console.log("Application started on port %s", 8080);
+http.createServer(app).listen(app.get("port"), function(){
+    console.log("Application started on port " + app.get("port"))
 });
