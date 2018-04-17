@@ -105,10 +105,14 @@ app.get("/list", function(req, res){
         });
     });    
 });
-app.get("view/:queryName", function(req, res){
-    var queryName = req.params.queryName;
 
-    Employee.find({'name': queryName}, function(error, employees){
+app.get("/view/:queryName", function(req, res){
+    //queryName sends first and last name
+    var queryName = req.params.queryName;
+    // create array of values ([0]first, [1]last)
+    var name = queryName.split(" ")
+    // 
+    Employee.find({'firstName': name[0]}, function(error, employees){
         if(error) throw error;
 
         console.log(employees);

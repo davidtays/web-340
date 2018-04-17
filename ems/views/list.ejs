@@ -22,11 +22,13 @@
       </tr>
       </thead>
       <tbody>
+      <!-- iterate through the employees -->
       <% employees.forEach(function (entry) { %>
       <tr>
         <td><%= entry.firstName %></td>
         <td><%= entry.lastName %></td>
-        <td><a href="/view/<%= entry.lastName %>">VIEW</a></td>
+        <!-- send values with request -->
+        <td><a href="/view/<%= entry.firstName + " " + entry.lastName %>">VIEW</a></td>
       </tr>
       </tbody>
       <% }) %>

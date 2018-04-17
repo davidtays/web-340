@@ -9,9 +9,34 @@
 
 <% include header %>
 <% include navbar %>
-
+<% include scripts %>
     <h1>Welcome All!</h1>
     <br />
-    
+    <!-- Tab links -->
+<div class="tab">
+        <button class="tablinks" onclick="openTab(event, 'Tab1')">Wow</button>
+        <button class="tablinks" onclick="openTab(event, 'Tab2')">Stop</button>
+        <button class="tablinks" onclick="openTab(event, 'Tab3')">411</button>
+      </div>
+      
+      <!-- Tab content -->
+
+      <div id="Tab1" class="tabcontent">
+        <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
+        <h3>Wow</h3>
+        <p>Would You Just look at the convenience!</p>
+      </div>
+      
+      <div id="Tab2" class="tabcontent">
+        <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
+        <h3>Stop</h3>
+        <p>Smell some roses.</p> 
+      </div>
+      
+      <div id="Tab3" class="tabcontent">
+        <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
+        <h3>411</h3>
+        <p>This app allows for you to view a list of employee records, or a single record. Would you like to add, edit or delete a record? All of those options are available!</p>
+      </div>
     
 <% include footer %>
